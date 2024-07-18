@@ -39,13 +39,14 @@ function Register() {
 
             const response = await fetch('https://fries.onrender.com/api/users/create-user', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newUser)
             });
 
-            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current');
+            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current', { mode: 'no-cors' });
             const current = await currentResponse.json();
 
             if (currentResponse.ok) {
