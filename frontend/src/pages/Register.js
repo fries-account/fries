@@ -46,8 +46,9 @@ function Register() {
                 body: JSON.stringify(newUser)
             });
 
-            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current', { mode: 'no-cors' });
+            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current');
             const current = await currentResponse.json();
+            
 
             if (currentResponse.ok) {
                 // Update the Current document
