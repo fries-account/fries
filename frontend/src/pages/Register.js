@@ -52,6 +52,7 @@ function Register() {
                 // Update the Current document
                 const updateResponse = await fetch(`https://fries.onrender.com/api/current/update-current/${current._id}`, {
                   method: 'PUT',
+                  mode: 'no-cors',
                   headers: {
                     'Content-Type': 'application/json'
                   },
