@@ -46,17 +46,8 @@ function Register() {
                 body: JSON.stringify(newUser)
             });
 
-            try {
-                const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current', { mode: 'no-cors' });
-                if (!currentResponse.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const current = await currentResponse.json();
-                // Process 'current' data here
-            } catch (error) {
-                console.error('Error during registration:', error);
-            }
-            
+            const currentResponse = await fetch('/api/get-current'); // Assuming '/api/get-current' is a route on your backend that forwards the request to 'https://fries.onrender.com/api/current/get-current'
+            const current = await currentResponse.json();
             
 
             if (currentResponse.ok) {
