@@ -43,7 +43,7 @@ const ReviewDetails = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/reviews/get-all-establishment-reviews/${name}`);
+        const response = await fetch(`https://fries.onrender.com/api/reviews/get-all-establishment-reviews/${name}`);
         const data = await response.json();
         setReviews(data);
       } catch (error) {

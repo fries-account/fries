@@ -34,7 +34,7 @@ const HomeGuest = () => {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/establishments/get-all-establishments')
+        fetch('https://fries.onrender.com/api/establishments/get-all-establishments')
             .then(response => response.json())
             .then(data => setPlaces(data))
             .catch(error => console.error('Error fetching establishments:', error));

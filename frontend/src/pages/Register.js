@@ -37,7 +37,7 @@ function Register() {
 
         try {
 
-            const response = await fetch('http://localhost:3000/api/users/create-user', {
+            const response = await fetch('https://fries.onrender.com/api/users/create-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,12 +45,12 @@ function Register() {
                 body: JSON.stringify(newUser)
             });
 
-            const currentResponse = await fetch('http://localhost:3000/api/current/get-current');
+            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current');
             const current = await currentResponse.json();
 
             if (currentResponse.ok) {
                 // Update the Current document
-                const updateResponse = await fetch(`http://localhost:3000/api/current/update-current/${current._id}`, {
+                const updateResponse = await fetch(`https://fries.onrender.com/api/current/update-current/${current._id}`, {
                   method: 'PUT',
                   headers: {
                     'Content-Type': 'application/json'

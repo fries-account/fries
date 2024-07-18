@@ -67,7 +67,7 @@ const HomeOwner = () => {
 
     const fetchCurrent = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/current/get-current');
+        const response = await fetch('https://fries.onrender.com/api/current/get-current');
         const data = await response.json();
         setCurrent(data);
 
@@ -81,11 +81,11 @@ const HomeOwner = () => {
         const imageSrc = imageMapping[establishmentIndex] || pizzaImage; // Default to pizzaImage if not found
         setImage(imageSrc);
 
-        const establishmentResponse = await fetch(`http://localhost:3000/api/establishments/get-establishment-by-name/${establishmentName}`);
+        const establishmentResponse = await fetch(`https://fries.onrender.com/api/establishments/get-establishment-by-name/${establishmentName}`);
         const establishmentData = await establishmentResponse.json();
         setEstablishment(establishmentData);
 
-        const reviewsResponse = await fetch(`http://localhost:3000/api/reviews/get-all-establishment-reviews/${establishmentName}`);
+        const reviewsResponse = await fetch(`https://fries.onrender.com/api/reviews/get-all-establishment-reviews/${establishmentName}`);
         const reviewsData = await reviewsResponse.json();
         setReviews(reviewsData);
 

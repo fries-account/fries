@@ -60,7 +60,7 @@ const ReviewDetails = () => {
   
     try {
       // Post the new review
-      const reviewResponse = await fetch('http://localhost:3000/api/reviews/create-review', {
+      const reviewResponse = await fetch('https://fries.onrender.com/api/reviews/create-review', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const ReviewDetails = () => {
   
       if (reviewResponse.ok) {
         // Fetch all reviews to recalculate the average
-        const reviewsResponse = await fetch(`http://localhost:3000/api/reviews/get-all-establishment-reviews/${name}`);
+        const reviewsResponse = await fetch(`https://fries.onrender.com/api/reviews/get-all-establishment-reviews/${name}`);
         const reviewsData = await reviewsResponse.json();
         
         // Calculate the new average rating
@@ -85,7 +85,7 @@ const ReviewDetails = () => {
       
   
         // Update the establishment's average rating
-        const updateResponse = await fetch(`http://localhost:3000/api/establishments/update-rating/${name}`, {
+        const updateResponse = await fetch(`https://fries.onrender.com/api/establishments/update-rating/${name}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ const ReviewDetails = () => {
 
     const fetchCurrentUser = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/current/get-current');
+        const response = await fetch('https://fries.onrender.com/api/current/get-current');
         const data = await response.json();
         setCurrentUser(data);
       } catch (error) {
@@ -124,7 +124,7 @@ const ReviewDetails = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/reviews/get-all-establishment-reviews/${name}`);
+        const response = await fetch(`https://fries.onrender.com/api/reviews/get-all-establishment-reviews/${name}`);
         const data = await response.json();
         setReviews(data);
       } catch (error) {

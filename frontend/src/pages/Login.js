@@ -21,19 +21,19 @@ function Login() {
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/get-all-users');
+      const response = await fetch('https://fries.onrender.com/api/users/get-all-users');
       const users = await response.json();
 
       const user = users.find(user => user.username === username && user.password === password);
 
       if (user) {
 
-        const currentResponse = await fetch('http://localhost:3000/api/current/get-current');
+        const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current');
         const current = await currentResponse.json();
 
         if (currentResponse.ok) {
           // Update the Current document
-          const updateResponse = await fetch(`http://localhost:3000/api/current/update-current/${current._id}`, {
+          const updateResponse = await fetch(`https://fries.onrender.com/api/current/update-current/${current._id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
