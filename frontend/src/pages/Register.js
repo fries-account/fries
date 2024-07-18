@@ -46,8 +46,17 @@ function Register() {
                 body: JSON.stringify(newUser)
             });
 
-            const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current');
-            const current = await currentResponse.json();
+            try {
+                const currentResponse = await fetch('https://fries.onrender.com/api/current/get-current', { mode: 'no-cors' });
+                if (!currentResponse.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const current = await currentResponse.json();
+                // Process 'current' data here
+            } catch (error) {
+                console.error('Error during registration:', error);
+            }
+            
             
 
             if (currentResponse.ok) {
